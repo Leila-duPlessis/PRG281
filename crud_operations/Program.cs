@@ -6,11 +6,62 @@ using System.Threading.Tasks;
 
 namespace crud_operations
 {
+    // Enum menu creation
+    enum menu { createPlayer = 1, viewPlayers = 2, searchPlayer = 3, updatePlayer = 4, deletePlayer = 5, exitMenu = 6 }
     internal class Program
     {
         static void Main(string[] args)
         {
-            
+            // Exit control for while looped menu
+            bool continueMenu = true;
+
+            while (continueMenu)
+            {
+                // -> Menu frontend and reading of choice selected
+                Console.WriteLine(@"
+╔═══════════════════════════╗
+║     BLNT GAME SERVER      ║
+╚═══════════════════════════╝");
+                Console.WriteLine("Player Management Menu");
+                Console.WriteLine("=================================");
+                Console.WriteLine();
+                Console.WriteLine($"{(int)menu.createPlayer} ~ Create New Player");
+                Console.WriteLine($"{(int)menu.viewPlayers} ~ View All Players");
+                Console.WriteLine($"{(int)menu.searchPlayer} ~ Search For Player");
+                Console.WriteLine($"{(int)menu.updatePlayer} ~ Update a Player");
+                Console.WriteLine($"{(int)menu.deletePlayer} ~ Delete a Player");
+                Console.WriteLine($"{(int)menu.exitMenu} ~ Exit");
+                int choice = int.Parse(Console.ReadLine());
+                menu option = (menu)choice;
+                // <-
+
+                // Actual menu option paths
+                switch (option)
+                {
+                    case menu.createPlayer:
+                        break;
+
+                    case menu.viewPlayers:
+                        break;
+
+                    case menu.searchPlayer:
+                        break;
+
+                    case menu.updatePlayer:
+                        break;
+
+                    case menu.deletePlayer:
+                        break;
+
+                    case menu.exitMenu:
+                        continueMenu = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("kys");
+                        break;
+                }
+            }
         }
     }
 }

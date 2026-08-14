@@ -12,9 +12,10 @@ namespace crud_operations
     {
         static void Main(string[] args)
         {
+            Manage_Players manager = new Manage_Players();
+
             // Exit control for while looped menu
             bool continueMenu = true;
-
             while (continueMenu)
             {
                 // -> Menu frontend and reading of choice selected
@@ -39,18 +40,23 @@ namespace crud_operations
                 switch (option)
                 {
                     case menu.createPlayer:
+                        manager.create();
                         break;
 
                     case menu.viewPlayers:
+                        manager.view();
                         break;
 
                     case menu.searchPlayer:
+                        manager.search();
                         break;
 
                     case menu.updatePlayer:
+                        manager.update();
                         break;
 
                     case menu.deletePlayer:
+                        manager.delete();
                         break;
 
                     case menu.exitMenu:

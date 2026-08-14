@@ -13,6 +13,7 @@ namespace crud_operations
     {
         void create();
         void view();
+        void search();
         void update();
         void delete();
     }

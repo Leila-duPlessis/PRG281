@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameServerMatchMaking.Events
 {
-    internal class MatchMakingEvents
+    public class MatchMakingEvents
     {
 
         // Custom Events to pass details when a match is found

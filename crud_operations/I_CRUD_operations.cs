@@ -9,7 +9,7 @@ namespace crud_operations
 {
 
     // Create interface to control structure.
-    internal interface I_CRUD_operations
+    public interface I_CRUD_operations
     {
         void create();
         void view();

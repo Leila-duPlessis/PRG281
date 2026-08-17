@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace crud_operations
 {
-    internal class Manage_Players : I_CRUD_operations
+    public class Manage_Players : I_CRUD_operations
     {
         // Player list
         internal List<Player> players = new List<Player>();

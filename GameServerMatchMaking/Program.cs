@@ -4,8 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static GameServerMatchMaking.Events.MatchMakingEvents;
+using crud_operations;
+using GameServerMatchMaking.Events;
+using BackendMonitoring;
 
-namespace GameServerMatchMaking
+class Program
+{
+    static void Main(string[] args)
+    {
+        var eventManager = new MatchMakingEvents.MatchmakingEventManager();
+        var monitor = new MonitoringSystem();
+
+        monitor.SubscribeToEvents(eventManager);
+
+        // Example player from CRUD
+        var player = new Player("P001", "Leila", 10, Manage_Players.PlayerStatus.Online);
+        monitor.MonitorPlayer(player);
+        monitor.RunHealthCheck();
+
+        // Trigger events
+        eventManager.MatchFound("M123", "192.168.1.10", 10);
+        eventManager.Notification("Server running smoothly.");
+
+        // Cleanup
+        monitor.PerformCleanup();
+    }
+}
+
+
+/*namespace GameServerMatchMaking
 {
     internal class Program
     {
@@ -41,3 +68,4 @@ namespace GameServerMatchMaking
         }
     }
 }
+*/

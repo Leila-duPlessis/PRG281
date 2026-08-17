@@ -41,6 +41,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Compile Include="..\crud_operations\Player.cs" />
+    <Compile Include="..\crud_operations\I_CRUD_operations.cs" />
+    <Compile Include="..\crud_operations\Manage_Players.cs" />
+    <Compile Include="..\backend_monitoring\PlayerTracker.cs" />
+    <Compile Include="..\backend_monitoring\ServerHealthCheck.cs" />
+    <Compile Include="..\backend_monitoring\MonitoringSystems.cs" />
+    <Compile Include="..\backend_monitoring\SystemStateManager.cs" />
+    <Compile Include="..\backend_monitoring\CleanupManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\MatchMakingEvents.cs" />

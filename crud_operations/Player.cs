@@ -7,9 +7,9 @@ using static crud_operations.Manage_Players;
 
 namespace crud_operations
 {
-    internal class Player
+    public class Player
     {
-        // Getting ans setting player properties
+        // Getting and setting player properties
         internal string playerID { get; set; }
         internal string playerName { get; set; }
         internal int playerLvl { get; set; }

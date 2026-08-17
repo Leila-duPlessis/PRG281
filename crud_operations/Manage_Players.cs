@@ -23,7 +23,7 @@ namespace crud_operations
             players.Add(new Player("PLAYER5", "CyberKnight", 12, PlayerStatus.Online));
         }
 
-        // This method is for searching for player in players list, if a player is return player object if not then returns null.
+        // This method is for searching for player in players list, if a player exists return player object if not then returns null.
         internal Player searchPlayer(string playerID)
         {
             foreach (Player player in players)
@@ -42,9 +42,11 @@ namespace crud_operations
             Offline = 1, Online = 2, inQueue = 3, inMatch = 4
         }
 
+        // Change nextPlayerNumber too 1 if dummy data is removed
+        private static int nextPlayerNumber = 6;
         public void create()
         {
-            string pID = "PLAYER" + (players.Count + 1);
+            string pID = "PLAYER" + (nextPlayerNumber++);
             Console.WriteLine("Please enter username");
             string pN = Console.ReadLine();
             Console.WriteLine("Please enter player level");
@@ -122,25 +124,44 @@ namespace crud_operations
             }
             else
             {
-                Console.WriteLine("Player not found.");
+                Console.WriteLine("Player does not exist.");
             }
         }
         public void delete()
         {
             Console.WriteLine("Enter PlayerID that you wish to delete");
-            Console.WriteLine("--- This choice will be permanent and it will be impossible to restore this player ---");
             string playerID = Console.ReadLine().ToUpper().Trim();
 
             Player player = searchPlayer(playerID);
-
             if (player != null)
             {
-                players.Remove(player);
+                Console.WriteLine($"Are you sure you want to delete: {playerID}");
+                Console.WriteLine("--- This choice will be permanent and it will be impossible to restore this player ---");
+                Console.WriteLine("Y/N");
+                string confirmDelete = Console.ReadLine().ToLower().Trim();
+
+                if (confirmDelete == "y" || confirmDelete == "yes")
+                {
+                    players.Remove(player);
+                    Console.WriteLine($"{playerID} was removed successfully");
+                }
+                else if (confirmDelete == "n" || confirmDelete == "no")
+                {
+                    Console.WriteLine("Player was not removed");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Process was cancelled");
+                    return;
+                }
+
             }
             else
             {
                 Console.WriteLine("Player does not exist");
             }
         }
+
     }
 }

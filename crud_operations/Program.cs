@@ -64,7 +64,7 @@ namespace crud_operations
                         break;
 
                     default:
-                        Console.WriteLine("kys");
+                        Console.WriteLine("default");
                         break;
                 }
             }

@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/GameServerMatchMaking/.vs/GameServerMatchMaking
+/GameServerMatchMaking/obj/Debug
+/GameServerMatchMaking/bin/Debug
